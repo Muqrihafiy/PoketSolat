@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Solat Sunat Qabliyah (Sebelum) Zohor",
+    "arabic": "أُصَلِّي سُنَّةَ الظُّهْرِ رَكْعَتَيْنِ قَبْلِيَّةً ً لِلَّهِ تَعَالَى",
+    "latin":  "Usolli Sunnataz-Zuhri Rak’ataini Qabliyyatan Lillahi Ta’ala ",
+    "terjemahan":"Sahaja aku menunaikan solat sunat sebelum Zohor dua rakaat kerana Allah Taala."
+  },
+
+  {
+    "id": 2,
+    "name": "Solat Sunat Ba’diyah (Selepas) Zohor",
+    "arabic": "أُصَلِّي سُنَّةَ الظُّهْرِ رَكْعَتَيْنِ  بَعْدِيَّةً ً لِلَّهِ تَعَالَى",
+    "latin":  "Usolli Sunnataz-Zuhri Rak’ataini Ba’diyyatan Lillahi Ta’ala ",
+    "terjemahan":"Sahaja aku menunaikan solat sunat selepas Zohor dua rakaat kerana Allah Taala."
+  }
+
+]

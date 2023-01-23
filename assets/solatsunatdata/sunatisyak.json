@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Solat Sunat Qabliyah (Sebelum) Isyak",
+    "arabic": "أُصَلِّي سُنَّةَ العِشَاءِ رَكْعَتَيْنِ قَبْلِيَّةً ً لِلَّهِ تَعَالَى",
+    "latin":  "Usolli Sunnatal Isyak’i Rak’ataini Qabliyyatan Lillahi Ta’ala",
+    "terjemahan":"Sahaja aku menunaikan solat sunat sebelum Isyak dua rakaat kerana Allah Taala."
+  },
+
+  {
+    "id": 2,
+    "name": "Solat Sunat Ba’diyah (Selepas) Ishak",
+    "arabic": "أُصَلِّي سُنَّةَ العِشَاءِ رَكْعَتَيْنِ  بَعْدِيَّةً ً لِلَّهِ تَعَالَى",
+    "latin":  "Usolli Sunnatal Isyak’i Rak’ataini Ba’diyyatan Lillahi Ta’ala",
+    "terjemahan":"Sahaja aku menunaikan solat sunat selepas Isyak dua rakaat kerana Allah Taala."
+  }
+
+]

@@ -28,16 +28,16 @@ class _ScoreScreen2State extends State<ScoreScreen2> {
     String dahJawab = 'Point pokok hanya untuk percubaan pertama';
 
     if( question2answered == false){
-      Provider.of<solatPoints>(context, listen: false).Question1answered();
-      if(widget.correctNum == 10){
+      Provider.of<solatPoints>(context, listen: false).Question2answered();
+      if(widget.correctNum == 20){
         Provider.of<solatPoints>(context, listen: false).FullpointPokok();
         return fullmark;
       }
-      else if (widget.correctNum >= 5 && widget.correctNum != 10){
+      else if (widget.correctNum >= 10 && widget.correctNum != 20){
         Provider.of<solatPoints>(context, listen: false).HalfPointPokok();
         return halfmark;
       }
-      else if (widget.correctNum < 5 && widget.correctNum != 0){
+      else if (widget.correctNum < 10 && widget.correctNum != 0){
         Provider.of<solatPoints>(context, listen: false).increasePointPokok();
         return mark;
       }
@@ -56,12 +56,10 @@ class _ScoreScreen2State extends State<ScoreScreen2> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: GestureDetector(
-          onTap: () {
-            Get.to(() => bottomnavbar());
-            Get.delete<Question2Controller>();
-          },
-          child: Icon(
+        leading: IconButton(
+          onPressed: () { Get.to(() => bottomnavbar());
+          Get.delete<Question2Controller>();  },
+          icon: Icon(
             Icons.home,
             size: 45,
           ),

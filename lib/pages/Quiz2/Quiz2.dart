@@ -5,6 +5,7 @@ import 'package:easy_separator/easy_separator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Question2_Controller.dart';
 import 'Quiz2_Screen.dart';
@@ -18,6 +19,26 @@ class Quiz2 extends StatefulWidget {
 
 class _Quiz2State extends State<Quiz2> {
 
+  bool question2Bought = false ;
+
+
+  @override
+  void initState(){
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await CheckQuestion2Bought();
+    });
+  }
+
+  Future<void> CheckQuestion2Bought() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    question2Bought = prefs.getBool('question2Bought') ?? false;
+
+  }
+   bool getCheckQ2 ()  {
+     CheckQuestion2Bought();
+    return question2Bought;
+  }
 
   final _questionController = Get.put(Question2Controller());
 
@@ -161,7 +182,7 @@ class _Quiz2State extends State<Quiz2> {
                                         }
                                       },
                                       child:Icon(
-                                        solatpoints.question2Bought ? Icons.lock_open_rounded : Icons.lock,
+                                        getCheckQ2() ? Icons.lock_open_rounded : Icons.lock,
                                       ),
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.purple,

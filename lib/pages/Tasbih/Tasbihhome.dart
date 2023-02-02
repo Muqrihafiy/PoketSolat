@@ -3,6 +3,7 @@ import 'package:daily5/provider/solatPointsProvider.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 import '../../helpers/ui_parameters.dart';
@@ -22,6 +23,27 @@ class TasbihHome extends StatefulWidget {
 
 class _TasbihHomeState extends State<TasbihHome> {
 
+
+   bool tasbihBought = false ;
+
+
+  @override
+  void initState(){
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+       await CheckTasbihBought();
+    });
+  }
+
+   Future<void> CheckTasbihBought() async {
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+     tasbihBought = prefs.getBool('tasbihbought') ?? false;
+
+   }
+   bool getCheckTasbih () {
+      CheckTasbihBought() ;
+     return tasbihBought;
+   }
 
 
   @override
@@ -138,7 +160,7 @@ class _TasbihHomeState extends State<TasbihHome> {
                                         }
                                       },
                                       child:Icon(
-                                        solatpoints.tasbihBought ?  Icons.lock_open_rounded : Icons.lock ,
+                                        getCheckTasbih() ?  Icons.lock_open_rounded : Icons.lock ,
                                       ),
                                       style: ElevatedButton.styleFrom(
                                           backgroundColor: Colors.purple,

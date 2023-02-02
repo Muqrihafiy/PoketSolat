@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Question_Controller.dart';
 import '../../helpers/iicon_with_text.dart';
@@ -24,6 +25,27 @@ class Quiz1 extends StatefulWidget {
 }
 
 class _Quiz1State extends State<Quiz1> {
+
+  bool question1Bought = false ;
+
+
+  @override
+  void initState(){
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await CheckQuestion1Bought();
+    });
+  }
+
+  Future<void> CheckQuestion1Bought() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    question1Bought = prefs.getBool('question1Bought') ?? false;
+
+  }
+  bool getCheckQ1 ()  {
+    CheckQuestion1Bought();
+    return question1Bought;
+  }
 
 
   final _questionController = Get.put(QuestionController());
@@ -168,7 +190,7 @@ class _Quiz1State extends State<Quiz1> {
                                      }
                                      },
                                    child:Icon(
-                                     solatpoints.question1Bought ?  Icons.lock_open_rounded : Icons.lock ,
+                                     getCheckQ1() ?  Icons.lock_open_rounded : Icons.lock ,
                                    ),
                                    style: ElevatedButton.styleFrom(
                                      backgroundColor: Colors.purple,

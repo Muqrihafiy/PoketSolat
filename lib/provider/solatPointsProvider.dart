@@ -36,6 +36,13 @@ class solatPoints with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> increasePointTen()  async {
+    final prefs = await SharedPreferences.getInstance();
+    points = (prefs.getInt('counter') ?? 0) + 10;
+    prefs.setInt('counter', points);
+    notifyListeners();
+  }
+
   Future<void> decreasePoint5()  async {
     final prefs = await SharedPreferences.getInstance();
     points = (prefs.getInt('counter') ?? 0) - 5;
@@ -104,7 +111,7 @@ class solatPoints with ChangeNotifier {
     notifyListeners();
   }
   Future <bool> getCheckQ1 () async {
-    CheckQuestion1Bought();
+    await CheckQuestion1Bought();
     return question1Bought;
   }
 
@@ -134,7 +141,7 @@ class solatPoints with ChangeNotifier {
     notifyListeners();
   }
   Future <bool> getCheckQ2 () async {
-    CheckQuestion2Bought();
+    await CheckQuestion2Bought();
     return question2Bought;
   }
 
@@ -156,6 +163,7 @@ class solatPoints with ChangeNotifier {
   Future <void> TasbihBought() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('tasbihbought', true);
+    notifyListeners();
   }
 
   Future<void> CheckTasbihBought() async {
@@ -164,7 +172,7 @@ class solatPoints with ChangeNotifier {
     notifyListeners();
   }
   Future <bool> getCheckTasbih () async {
-    CheckTasbihBought() ;
+    await CheckTasbihBought() ;
     return tasbihBought;
   }
 }

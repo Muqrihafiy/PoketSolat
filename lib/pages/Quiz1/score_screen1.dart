@@ -55,12 +55,10 @@ class _ScoreScreen1State extends State<ScoreScreen1> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: GestureDetector(
-          onTap: () {
-            Get.to(() => bottomnavbar());
-            Get.delete<QuestionController>();
-          },
-          child: Icon(
+        leading: IconButton(
+          onPressed: () { Get.to(() => bottomnavbar());
+          Get.delete<QuestionController>();  },
+          icon: Icon(
             Icons.home,
             size: 45,
           ),

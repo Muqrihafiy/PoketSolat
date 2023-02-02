@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/checkinlist.dart';
+import '../provider/solatPointsProvider.dart';
 import '../services/auth.dart';
 import '../widgets/piechart.dart';
 
@@ -152,6 +153,24 @@ class _ProfilePageState extends State<ProfilePage> {
 
                             ) );
                   },
+                ),
+
+                ListTile(
+                  leading: Icon(
+                    FontAwesomeIcons.wrench,
+                  ),
+                  title: const Text('Developer Button'),
+                  onTap: ()  {
+                    Provider.of<solatPoints>(context, listen: false).increasePointTen();
+                    const snackdemo = SnackBar(
+                      content: Text('Point Increase 10 Successful'),
+                      backgroundColor: Colors.green,
+                      elevation: 10,
+                      behavior: SnackBarBehavior.floating,
+                      margin: EdgeInsets.all(5),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackdemo);
+                  },//>>>>>Developer only
                 ),
               ],
             ),

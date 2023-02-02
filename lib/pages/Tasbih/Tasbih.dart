@@ -66,7 +66,7 @@ class _TasbihState extends State<Tasbih> {
                               tooltip: 'Homepage',
                               icon: const Icon(Icons.home),
                               onPressed: () {
-                                Get.to(() => bottomnavbar());
+                                Get.offAll(() => bottomnavbar());
                               }),
                           IconButton(
                               tooltip: 'Reset counter',

@@ -112,6 +112,7 @@ class _FlappyHomeState extends State<FlappyHome> {
                                                         ),
                                                         TextButton(
                                                             onPressed: (){
+                                                              Navigator.pop(context, 'Tidak');
                                                             },
                                                             child: const Text("Tidak")
 
